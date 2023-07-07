@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UrlShortener;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class UrlShortenerController extends Controller
 {
@@ -19,5 +20,12 @@ class UrlShortenerController extends Controller
         ]);
 
         return response()->json(['success' => true, 'data' => $key]);
+    }
+
+    public function redirect($key)
+    {
+        $url = DB::table('urls')->where('key', $key)->get();
+
+        return Redirect::away($url[0]->longUrl);
     }
 }

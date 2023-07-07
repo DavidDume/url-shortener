@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/generate-key', [UrlShortenerController::class, 'generateKey']);
+
+Route::get('/{key}', [UrlShortenerController::class, 'redirect']);

@@ -1,6 +1,9 @@
 <template>
     <div class="m-5 text-xl border p-3 inline-block md:w-1/2 relative w-3/4 rounded" :class="copied ? 'border-green-500': ''">
-        www.tiny.url/{{ url }}
+        <a :href="store.baseUrl + '/' + url" target="_blank">
+            {{store.baseUrl + '/' + url }}
+        </a>
+       
         <div class="absolute top-0 right-0 hover:cursor-pointer" @click="copyClipboard">
             <i class="fa-regular fa-copy"></i>
         </div>
@@ -9,7 +12,8 @@
 </template>
 
 <script>
-import {ref} from 'vue'
+    import {store} from '../store'
+
     export default {
         name: 'newUrl',
         props: {
@@ -17,8 +21,11 @@ import {ref} from 'vue'
             copied: Boolean,
             copyClipboard: Function
         },
-        setup(props) {
-            
+        setup() {
+
+            return {
+                store
+            }
         }
     }
 </script>

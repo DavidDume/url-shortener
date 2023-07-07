@@ -35,7 +35,7 @@
             const copied = ref(false)
             
             const copyClipboard = () => {
-                navigator.clipboard.writeText("www.tiny.url/" + urlKey.value )
+                navigator.clipboard.writeText(store.baseUrl + '/' + urlKey.value )
                 copied.value = true
                 setTimeout(function() {
                     copied.value = false
