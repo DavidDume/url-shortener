@@ -43,7 +43,7 @@
             }
 
             const generateLink = () => {
-                axios.post(`${store.baseUrl}/generate-key`, {longUrl: longUrl.value}).then(res => {
+                axios.post(`${store.baseUrl}/api/generate-key`, {longUrl: longUrl.value}).then(res => {
                     urlKey.value = res.data.data
                     keyGenerated.value = true;
                 });

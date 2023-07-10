@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::post('/generate-key', [UrlShortenerController::class, 'generateKey']);
+/* Route::post('/generate-key', [UrlShortenerController::class, 'generateKey']);*/
 
 Route::get('/{key}', [UrlShortenerController::class, 'redirect']);
